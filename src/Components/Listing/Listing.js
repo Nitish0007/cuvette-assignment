@@ -9,7 +9,6 @@ function Listing() {
   const [showModal, setShowmodal] = useState(false);
   const [modalDetails, setModaldetails] = useState({});
 
-  console.log(showModal);
   const data = JSON.parse(localStorage.getItem("data"));
   return (
     <div className="listingpage">
@@ -29,9 +28,8 @@ function Listing() {
                     <span
                       className="enteredDetails"
                       onClick={() => {
-                        setModaldetails({ jobData });
+                        setModaldetails(jobData);
                         setShowmodal(!showModal);
-                        console.log(modalDetails);
                       }}
                     >
                       Details
@@ -47,32 +45,37 @@ function Listing() {
           style={{ display: showModal ? "block" : "none" }}
         >
           <div style={{ display: "flex" }}>
-            <label>Job Title:</label>
-            <p>{modalDetails?.jobData?.jobTitle}</p>
+            <label className="bold">Job Title:</label>
+            <p>{modalDetails.jobTitle}</p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Location:</label>
-            <p>{modalDetails?.jobData?.location}</p>
+            <label className="bold">Location:</label>
+            <p>{modalDetails.location}</p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Skills:</label>
-            <p>{modalDetails?.jobData?.skills}</p>
+            <label className="bold">Skills:</label>
+            <p>
+              {modalDetails.skills &&
+                Object.keys(modalDetails.skills)
+                  .map((key) => modalDetails.skills[key].value)
+                  .join(" ")}
+            </p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Mode:</label>
-            <p>{modalDetails?.jobData?.mode}</p>
+            <label className="bold">Mode:</label>
+            <p>{modalDetails.mode}</p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Stipend:</label>
-            <p>{modalDetails?.jobData?.stipend?.join(" ")}</p>
+            <label className="bold">Stipend:</label>
+            <p>{modalDetails.stipend?.join(" ")}</p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Start Date:</label>
-            <p>{modalDetails?.jobData?.date}</p>
+            <label className="bold">Start Date:</label>
+            <p>{modalDetails.date}</p>
           </div>
           <div style={{ display: "flex" }}>
-            <label>Duration:</label>
-            <p>{modalDetails?.jobData?.duration}</p>
+            <label className="bold">Duration:</label>
+            <p>{modalDetails.duration}</p>
           </div>
         </div>
       </div>

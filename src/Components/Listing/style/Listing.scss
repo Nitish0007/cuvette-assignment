@@ -3,12 +3,14 @@
   height: 100%;
   width: 100%;
 }
+
 .listingBody {
   height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .addJob {
   color: #4babe1;
   font-style: normal;
@@ -16,27 +18,33 @@
   font-size: 1.4rem;
   text-align: end;
 }
+
 .list {
   height: 10rem;
   padding-left: 2rem;
   overflow-y: scroll;
   width: 100%;
 }
+
 .listContainer {
   width: 70%;
   overflow-y: hidden;
 }
+
 .list::-webkit-scrollbar {
   width: 5px;
 }
+
 .list::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
 .list::-webkit-scrollbar-thumb {
   width: 100%;
 
   background-color: #a1a1a1;
 }
+
 .listItem {
   font-style: normal;
   font-weight: normal;
@@ -44,12 +52,15 @@
   line-height: 1.5rem;
   color: rgba(9, 5, 64, 0.92);
 }
+
 .title {
   width: 5rem;
 }
+
 .date {
   width: 8rem;
 }
+
 .enteredDetails {
   width: 5rem;
   font-style: normal;
@@ -58,11 +69,13 @@
   line-height: 34px;
   cursor: pointer;
 }
+
 .itemContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .detailModal {
   border: 1px solid #a1a1a1;
   position: absolute;
@@ -71,10 +84,17 @@
   width: 15rem;
   padding: 1rem;
 }
+
+
+.bold {
+  font-weight: bold;
+}
+
 @media (max-width: 600px) {
   .listContainer {
     width: fit-content;
   }
+
   .date {
     margin-left: 1rem;
     margin-right: 1rem;
