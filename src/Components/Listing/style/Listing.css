@@ -96,6 +96,16 @@
   padding: 1rem;
 }
 
+.detailModal p {
+  font-weight: bold;
+  color: #a1a1a1;
+}
+
+.bold {
+  font-weight: bolder;
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 600px) {
   .listContainer {
     width: -webkit-fit-content;

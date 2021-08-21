@@ -83,11 +83,15 @@
   background-color: white;
   width: 15rem;
   padding: 1rem;
+  p {
+    font-weight: bold;
+    color: #a1a1a1;
+  }
 }
 
-
 .bold {
-  font-weight: bold;
+  font-weight: bolder;
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 600px) {
