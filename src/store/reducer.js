@@ -1,5 +1,9 @@
 const initialState = {
-  enteredData: {},
+  enteredData: {
+    jobTitle: "",
+    location: "",
+    remote: false,
+  },
 };
 
 const reducer = (state = initialState, action) => {

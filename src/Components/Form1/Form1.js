@@ -63,7 +63,9 @@ function Form1(props) {
             <div>
               <input
                 type="checkbox"
-                value={remote}
+                // value={remote}
+                readOnly
+                checked={remote ? "checked" : ""}
                 onClick={() => {
                   setRemote(!remote);
                 }}
