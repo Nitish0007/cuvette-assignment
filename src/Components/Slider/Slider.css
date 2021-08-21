@@ -1,0 +1,10 @@
+.MuiSlider-markLabel {
+  top: -10px !important;
+  font-size: 11px !important;
+  font-weight: bolder;
+}
+
+.MuiSlider-track {
+  background-color: black !important;
+}
+/*# sourceMappingURL=Slider.css.map */

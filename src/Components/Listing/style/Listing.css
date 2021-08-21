@@ -1,0 +1,62 @@
+.listingPage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.listingBody {
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.addJob {
+  color: #4babe1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  text-align: end;
+}
+
+.list {
+  height: 10rem;
+  padding-left: 2rem;
+  overflow-y: scroll;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.list::-webkit-scrollbar {
+  height: 0px;
+  width: 0px;
+}
+
+.listItem {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+  color: rgba(9, 5, 64, 0.92);
+}
+
+.date {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.enteredDetails {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 34px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Listing.css.map */
