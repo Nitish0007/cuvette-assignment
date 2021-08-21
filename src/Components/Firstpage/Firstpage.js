@@ -10,7 +10,7 @@ function Firstpage() {
       <Navbar />
       <div className="postBody">
         <h1>Hi Company user, Welcome to Cuvette tech</h1>
-        <Link to="/form1">
+        <Link to="/forms">
           <button className="postBtn">+ Post a Job</button>
         </Link>
       </div>

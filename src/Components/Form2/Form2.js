@@ -38,9 +38,12 @@ function Form2(props) {
       <div className="form2Body">
         <div className="detailContainer">
           <div className="top">
-            <Link to="/form1">
-              <img src={arrow} alt="back"></img>
-            </Link>
+            <img
+              src={arrow}
+              onClick={() => props.changeComp("form1")}
+              alt="back"
+            ></img>
+
             <p>#intern details</p>
           </div>
           <div className="details">

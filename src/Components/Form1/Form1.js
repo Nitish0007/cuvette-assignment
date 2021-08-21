@@ -2,18 +2,13 @@ import React, { useState } from "react";
 
 import "./style/Form1.css";
 import Navbar from "../Navbar/Navbar";
-import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Form1(props) {
-  setTimeout(() => {
-    console.log(props);
-  }, 100);
   const [remote, setRemote] = useState(props.data?.remote || false);
   const [jobTitle, setJobtitle] = useState(props.data?.jobTitle || "");
   const [location, setLocation] = useState(props.data?.location || "");
   const [error, setError] = useState("");
-  const history = useHistory();
 
   const registerData = () => {
     if (!jobTitle || (!location && !remote)) {
@@ -22,13 +17,14 @@ function Form1(props) {
     } else {
       setError("");
     }
+
     props.setData({
-      ...props.data,
       jobTitle,
       location,
       remote: remote,
     });
-    console.log(props.data);
+
+    props.changeComp("form2");
   };
 
   return (
@@ -63,7 +59,7 @@ function Form1(props) {
             <div>
               <input
                 type="checkbox"
-                value={remote}
+                checked={remote}
                 onClick={() => {
                   setRemote(!remote);
                 }}
@@ -72,16 +68,7 @@ function Form1(props) {
             </div>
           </div>
           <div className="btnContainer">
-            <button
-              className="nextBtn"
-              onClick={(e) => {
-                registerData();
-
-                if (!error) {
-                  history.push("/form2");
-                }
-              }}
-            >
+            <button className="nextBtn" onClick={registerData}>
               Next
             </button>
           </div>
@@ -104,7 +91,7 @@ const mapDispatchToProps = (dispatch) => {
     setData: (data) =>
       dispatch({
         type: "ENTER_DATA",
-        enteredData: data,
+        data,
       }),
   };
 };
