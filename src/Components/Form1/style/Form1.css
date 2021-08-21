@@ -42,6 +42,9 @@
   display: -ms-flexbox;
   display: flex;
   margin: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -49,7 +52,19 @@
 
 .input label {
   margin-right: 1rem;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #020b3f;
 }
 
 .input input {

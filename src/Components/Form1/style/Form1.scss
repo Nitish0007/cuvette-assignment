@@ -23,10 +23,18 @@
   width: 100%;
   display: flex;
   margin: 1rem;
+  align-items: center;
   justify-content: space-evenly;
   label {
     margin-right: 1rem;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #020b3f;
   }
   input {
     border: none;
