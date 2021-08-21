@@ -2,7 +2,6 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow: hidden;
 }
 .form2Body {
   display: flex;
@@ -16,19 +15,14 @@
   border: 1px solid #a1a1a1;
   height: 25rem;
   box-shadow: 2px 2px 5px 1px #a1a1a1;
-  overflow-y: scroll;
+  overflow-y: hidden;
   margin-bottom: 3rem;
 }
 .detailContainer::-webkit-scrollbar {
   width: 0px;
   height: 0px;
 }
-.detailContainer::-webkit-scrollbar-thumb {
-  width: 5px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #a1a1a1;
-}
+
 .top {
   display: flex;
   justify-content: space-between;
@@ -51,9 +45,6 @@
   display: flex;
   align-items: center;
   margin: 0.5rem;
-  selectContainer {
-    width: 5rem;
-  }
   label {
     margin: 0.5rem;
     margin-right: 2rem;
@@ -72,7 +63,11 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.details::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
 }
 .checkbox {
   display: flex;
@@ -122,4 +117,18 @@
 }
 .css-g1d714-ValueContainer {
   width: 20rem;
+}
+
+@media (max-width: 600px) {
+  .detailContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    border: 1px solid #a1a1a1;
+    height: 25rem;
+    width: 90%;
+    box-shadow: 2px 2px 5px 1px #a1a1a1;
+    overflow-y: scroll;
+    margin-bottom: 3rem;
+  }
 }

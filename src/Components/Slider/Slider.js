@@ -1,9 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 
 import "./Slider.css";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles({
   root: {
@@ -37,12 +38,23 @@ function valuetext(value) {
   return `${value}k`;
 }
 
-export default function RangeSlider() {
+function RangeSlider(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState([20, 40]);
 
+  let timer;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    const debounce = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        props.setStipend({
+          stipend: value,
+        });
+      }, 500);
+    };
+    debounce();
   };
 
   return (
@@ -60,3 +72,21 @@ export default function RangeSlider() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.enteredData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setStipend: (data) =>
+      dispatch({
+        type: "ENTER_STIPEND",
+        data,
+      }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RangeSlider);

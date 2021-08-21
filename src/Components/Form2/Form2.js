@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./style/Form2.css";
 import Navbar from "../Navbar/Navbar";
@@ -19,18 +19,32 @@ function Form2(props) {
 
   const [skill, setSkill] = useState(props.data?.value || "");
   const [mode, setMode] = useState(props.data?.mode || "");
-  const [stipend, setStipend] = useState({
-    min: props.data?.max || "",
-    max: props.data?.max || "",
-  });
   const [date, setDate] = useState(props.data?.date || "");
   const [duration, setDuration] = useState(props.data?.duration || "");
   const [desc, setDesc] = useState(props.data?.desc || "");
   const [error, setError] = useState("");
 
-  // useEffect(() => {
+  const registerDetails = () => {
+    if (!skill || !mode || !date || !duration || !desc) {
+      setError("All fields are required");
+      return;
+    } else {
+      setError("");
+    }
+    props.setData2({
+      skills: skill,
+      mode,
+      date,
+      duration,
+      desc,
+    });
 
-  // }, [input])
+    const prevData = JSON.parse(localStorage.getItem("data")) || [];
+    console.log(prevData);
+    prevData.push(props.data);
+    console.log(prevData);
+    localStorage.setItem("data", JSON.stringify(prevData));
+  };
 
   return (
     <div className="form2">
@@ -38,9 +52,12 @@ function Form2(props) {
       <div className="form2Body">
         <div className="detailContainer">
           <div className="top">
-            <Link to="/form1">
-              <img src={arrow} alt="back"></img>
-            </Link>
+            <img
+              src={arrow}
+              onClick={() => props.changeComp("form1")}
+              alt="back"
+            ></img>
+
             <p>#intern details</p>
           </div>
           <div className="details">
@@ -117,9 +134,17 @@ function Form2(props) {
             </div>
             <div className="inputContainer">
               <label>Start Date</label>
-              <input placeholder="dd/mm/yyy" type="date" />
+              <input
+                placeholder="dd/mm/yyy"
+                type="date"
+                onChange={(e) => setDate(e.target.value)}
+              />
               <label>Duration</label>
-              <input type="text" style={{ width: "3rem" }} />
+              <input
+                type="text"
+                style={{ width: "3rem" }}
+                onChange={(e) => setDuration(e.target.value)}
+              />
               <p> months</p>
             </div>
             <div className="inputContainer">
@@ -142,15 +167,17 @@ Try to be as precise as possible(250-300 words)
                     textAlign: "start",
                     border: "1px solid #e5e5e5e",
                   }}
+                  onChange={(e) => setDesc(e.target.value)}
                 />
               </div>
             </div>
           </div>
           <div className="btnSection">
             <Link to="/mylistings">
-              <button>Post</button>
+              <button onClick={registerDetails}>Post</button>
             </Link>
           </div>
+          <p style={{ fontWeight: "bold", color: "red" }}>{error}</p>
         </div>
       </div>
     </div>
@@ -159,16 +186,16 @@ Try to be as precise as possible(250-300 words)
 
 const mapStateToProps = (state) => {
   return {
-    data: state.enteredValue,
+    data: state.enteredData,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setData: (data) =>
+    setData2: (data) =>
       dispatch({
-        type: "ENTER_DATA",
-        enteredValue: data,
+        type: "ENTER_DATA_FORM2",
+        data,
       }),
   };
 };
